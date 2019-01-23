@@ -1,0 +1,18 @@
+<view class='container'>
+<!-- 1.轮播图 -->
+  <view>
+    <view class="slider">
+      <swiper autoplay="true" interval='2500' indicator-dots='true'>
+        <swiper-item wx:for="{{list}}" wx:key="id">
+          <image src='{{item.img_url}}' lazy-load='true'  mode='aspectFill'></image>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+  <!-- 2.九宫格 -->
+  <view class='index-nav'>
+    <view class='nav-item'>
+      <image src=''></image>
+    </view>
+  </view>
+</view>
