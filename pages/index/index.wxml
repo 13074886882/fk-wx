@@ -1,5 +1,4 @@
 <view class='container'>
-<view>测试</view>
 <!-- 1.轮播图 -->
   <view>
     <view class="slider">
@@ -12,8 +11,22 @@
   </view>
   <!-- 2.九宫格 -->
   <view class='index-nav'>
-    <view class='nav-item'>
-      <image src=''></image>
+    <view class='nav-item' wx:for="{{navlist}}" wx:key="index">
+      <image bindtap='handleTap' data-id="{{item.id}}" src='{{item.img_url}}'></image>
+      <text>{{item.title}}</text>
     </view>
+  </view>
+  <!-- 3.分隔块 -->
+  <view class="divider"></view>
+  <!-- 4.热销商品 -->
+  <view class='index-hot'>
+    <navigator class='hot-item' wx:for="{{hotlist}}" wx:key="index">
+      <image src='{{item.img_url}}'></image>
+      <text>{{item.title}}</text>
+    </navigator>
+    <navigator class='hot-item' wx:for="{{hotlist}}" wx:key="index">
+      <image src='{{item.img_url}}'></image>
+      <text>{{item.title}}</text>
+    </navigator>
   </view>
 </view>

@@ -4,7 +4,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[]
+    list:[],
+    navlist:[],
+    hotlist:[]
+
   },
 
   /**
@@ -12,6 +15,8 @@ Page({
    */
   onLoad: function (options) {
     this.getImages();
+    this.getNavImages();
+    this.getHotImages();
   },
   getImages:function(){
     var url1 = "http://127.0.0.1:3000/getImages";
@@ -20,6 +25,31 @@ Page({
       success:(res)=>{
         var data = res.data;
         this.setData({list:data})
+      }
+    });
+  },
+  getNavImages: function () {
+    //获取九宫格信息
+    var url = "http://127.0.0.1:3000/getNavImages";
+    wx.request({
+      url: url,
+      success: (res) => {
+        this.setData({
+          navlist: res.data
+        });
+      },
+    })
+  },
+  //获取热销商品信息
+  getHotImages:function(){
+    var url2 = "http://127.0.0.1:3000/getHotImages";
+    wx.request({
+      url:url2,
+      success:(res)=>{
+        var data = res.data;
+        this.setData({
+          hotlist:res.data
+        })
       }
     });
   },
