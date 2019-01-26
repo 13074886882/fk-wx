@@ -34,6 +34,7 @@
 /* 功能四：按钮 */
 .index-hot{
   display: flex;
+  flex-wrap: wrap;
   padding: 20rpx 42rpx;
 }
 .index-hot .hot-item{
