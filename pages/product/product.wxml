@@ -1,0 +1,16 @@
+<!--pages/product/product.wxml-->
+<text>pages/product/product.wxml</text>
+<view class='container'>
+<view>
+  <navigator class='hotgroup'>热销商品</navigator>
+  <view class='viewgroup'>炸粉类</view>
+  <view class='viewitem'>炸1</view>
+  <view class='viewitem'>炸2</view>
+</view>
+<view>
+  <view class='viewgroup'>炸粉类</view>
+  <view class='viewitem'>炸1</view>
+  <view class='viewitem'>炸2</view>
+   <view class='viewitem'>炸3</view>
+</view>
+</view>
