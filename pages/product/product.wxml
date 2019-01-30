@@ -1,15 +1,15 @@
 <!--pages/product/product.wxml-->
-<text>pages/product/product.wxml</text>
-<view class='container'>
-<view>
-  <navigator class='hotgroup'>热销商品</navigator>
-  <view class='viewgroup'>炸粉类</view>
-  <view class='viewitem'>炸1</view>
-  <view class='viewitem'>炸2</view>
-</view>
-<view>
-  <view class='viewgroup'>炸粉类</view>
-  <view class='viewitem'>炸1</view>
-  <view class='viewitem'>炸2</view>
-</view>
+<view class='container bgimg'>
+  <!-- <image class="myImg" lazy-load='true' src='{{bg[0].img_url}}'></image> -->
+  <!-- 1.左侧导航栏 -->
+  <view class='nav_left'>
+    <navigator class='left_item'  wx:for="{{prolist}}" wx:key="index">{{item.fname}}</navigator>
+  </view>
+  <!-- 2.右侧商品栏 -->
+  <view class='nav_right'>
+    <view class='right_item' wx:for="{{rlist.data}}" wx:key="index">
+      <image lazy-load='true' src='{{item.md}}'>图片</image>
+      <text>{{item.subname}}</text>
+    </view>
+  </view>
 </view>
