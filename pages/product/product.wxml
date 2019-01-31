@@ -1,13 +1,12 @@
 <!--pages/product/product.wxml-->
 <view class='container bgimg'>
-  <!-- <image class="myImg" lazy-load='true' src='{{bg[0].img_url}}'></image> -->
   <!-- 1.左侧导航栏 -->
   <view class='nav_left'>
-    <navigator class='left_item'  wx:for="{{prolist}}" wx:key="index">{{item.fname}}</navigator>
+    <view bindtap="handle01" class='left_item'  wx:for="{{prolist}}" wx:key="index" data-id="{{item.fid}}">{{item.fname}}</view>
   </view>
   <!-- 2.右侧商品栏 -->
   <view class='nav_right'>
-    <view class='right_item' wx:for="{{rlist.data}}" wx:key="index">
+    <view class='right_item' wx:for="{{rlist}}" wx:key="index">
       <image lazy-load='true' src='{{item.md}}'>图片</image>
       <text>{{item.subname}}</text>
     </view>

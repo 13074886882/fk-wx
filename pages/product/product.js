@@ -5,16 +5,66 @@ Page({
   data: {
     prolist:[],
     rlist:[],
-    bg:[]
+    bg:[],
+    pageIndex:1,
+    pageSize:10,
+    hasMore:true
   },
 
   /* 生命周期函数--监听页面加载*/
   onLoad: function (options) {
     this.getFname();
-    this.getProductFamily();
-    this.getBGImg();
+    this.getProductFamily(); //这里是页面一加载时就会调用的数据
+    this.getBGImg();     //背景图，监听页面一开始就加载
+
   },
-  // 1.获取左侧导航栏的类名
+  /**
+   * 左侧导航栏跳转右边对应页面
+   * 获取左侧导航栏的类名fid
+   * 并且根据点击的fid来获取对应的类的页面
+   */
+  handle01:function(option){
+    // console.log(option)--先测试点击的时候，打印出来的数据结构中，找id的位置
+    var fid = option.target.dataset.id;  //根据结构数据，请求点击的目标id
+    // console.log(fid)
+    var url = "http://127.0.0.1:3000/getProduct?fid=" + fid; //fid要跟app里面的fid=req.query.fid
+    wx.request({
+      url: url,
+      success:(res)=>{
+        // console.log(res);
+        var data = res.data.data; //获取到数据后，截取10张
+        this.setData({rlist:data})
+      }
+    })
+  },
+  /**
+   * 用户向上滑的时候，加载更多
+   * 
+   */
+  loadMore:function(){
+    console.log(111)
+    var pno = this.data.pageIndex+1;
+    console.log(pno)
+    // var ps = this.data.pageSize;
+    wx.request({
+      url:'http://127.0.0.1:3000/getProduct',
+      data:{pno},
+      success:(res)=>{
+        // console.log(res);
+        var rows = this.data.rlist.concat(res.data.data);
+        console.log(rows);
+        var pc = res.data.pageCount;
+        var flag = pno < pc;
+        this.setData({
+          rlist: rows,
+          pageIndex: pno,
+          hasMore: flag
+        })
+      }
+    })
+  },
+
+
   getFname: function () {
     var url = "http://127.0.0.1:3000/getFname";
     wx.request({
@@ -32,7 +82,7 @@ Page({
     wx.request({
       url: url2,
       success:(res)=>{
-        var data = res.data;
+        var data = res.data.data;
         this.setData({rlist:data})
         // console.log(this.data.rlist.data)
       }
@@ -46,10 +96,11 @@ Page({
       success:(res)=>{
         var data = res.data;
         this.setData({bg:data})
-        console.log(res.data)
+        // console.log(res.data)
       }
     })
   },
+ 
   /*生命周期函数--监听页面初次渲染完成 */
   onReady: function () {
 
@@ -77,7 +128,7 @@ Page({
 
   /*页面上拉触底事件的处理函数*/
   onReachBottom: function () {
-
+    this.loadMore();
   },
 
   /*用户点击右上角分享*/
