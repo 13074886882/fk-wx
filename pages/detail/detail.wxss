@@ -7,3 +7,38 @@
   line-height: 50px;
   text-align: center;
 }
+/* 二：价格的样式 */
+.proPrice{
+  display: flex;
+  margin-top: 20rpx;
+  width: 100%;
+  height:110rpx;
+  justify-content: space-between;
+}
+.price{
+  width:50%;
+  color: red;
+  font-size:30px;
+}
+.fenxiang{width:50%;}
+.fenxiang .fxbtn{
+  width:100%;
+  height:110rpx;
+  background-color:#fff;
+  border:none;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:flex-end;
+}
+.fenxiang .fxbtn .fenxiangtu{
+  width:25%;height:70rpx;
+}
+.fenxiang .fxbtn .fenxiangtext{
+  /* border:1px solid black; */
+  width:40px;height:20px;
+  font-size:16px;
+  margin-right:8px;
+  text-align:center;
+  line-height:20px;
+}

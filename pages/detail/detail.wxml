@@ -9,5 +9,13 @@
     </swiper>
   </view>
   <!-- 商品价格 -->
-  <view>￥{{item.price}}</view>
+  <view class='proPrice'>
+    <view class='price'  wx:for="{{detlist}}" wx:key="index">￥{{item.price}}</view>
+    <view class='fenxiang'>
+      <view class='fxbtn' open-type='share'>
+        <image class='fenxiangtu' src='/pages/img/icons/fenxiang.png' mode="aspectFill" ></image>
+        <view class='fenxiangtext'>分享</view>
+      </view>
+    </view>
+  </view>
 </view>
