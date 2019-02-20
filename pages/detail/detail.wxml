@@ -1,0 +1,13 @@
+<view class='container'>
+  <view class='title'>商品详情页</view>
+  <!-- 商品详情的轮播 -->
+  <view class='slider'>
+    <swiper autoplay='true' >
+      <swiper-item wx:for="{{detlist}}" wx:key="index">
+        <image src='{{item.md}}'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 商品价格 -->
+  <view>￥{{item.price}}</view>
+</view>

@@ -32,17 +32,26 @@
 }
 /* 三：热销商品 */
 /* 功能四：按钮 */
+.hot_line{
+  color: black;
+  text-align: center;
+  margin-top: 20rpx;
+  font-weight: 700;
+}
 .index-hot{
   display: flex;
+  padding: 20rpx 32rpx;
   flex-wrap: wrap;
-  padding: 20rpx 42rpx;
 }
 .index-hot .hot-item{
   width:50%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;/*按列的方向*/
+  justify-content: center;/*水平居中*/
+  align-items: center;/*垂直居中*/
 }
 .index-hot image{
   width:320rpx;
-  height:178rpx;
+  height:250rpx;
+  box-shadow: 0 0 8rpx black;
 }

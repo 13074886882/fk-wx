@@ -1,0 +1,66 @@
+<!--pages/member/member.wxml-->
+<view class="container">
+  <!-- 头像信息---利用自动获取微信头像的功能 -->
+  <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+  <view class="userinfo" bindtap='uploadAvator'>
+    <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+    <open-data class='userinfo-avatar' type="userAvatarUrl"></open-data>
+    <open-data class='userinfo-nickname' type="userNickName"></open-data>
+    <!-- 需要使用button来授权登录 -->
+    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button>
+
+  </view>
+
+  <!--分割模块  -->
+  <view class="separate"></view>
+  <!-- 我的订单 -->
+  <view class="order" >
+    <text class="myorder-text">我的订单</text>
+    <navigator url='../order/order' open-type='navigate'>
+      <text class="myorderlook-text iconfont icon-chevronright">查看全部订单</text>
+      <view class=''></view>
+    </navigator>
+  </view>
+
+  <!-- 以下待修改 -->
+  <view class="line"></view>
+
+  <view class="navs">
+    <block wx:for-items="{{orderItems}}" wx:key="name">
+      <view class="nav-item" catchtap="toOrder" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
+        <image src="{{item.imageurl}}" class="nav-image" />
+        <text>{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+
+  <view class="separate"></view>
+  <view class="person-list">
+    <view class="list-item">
+      <image class="item-image" src="/pages/img/icons/shoucang.png"></image>
+      <text class="item-text">我的收藏</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="/pages/img/icons/shouhuo.png"></image>
+      <text class="item-text">收货地址</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="/pages/img/icons/shouhou.png"></image>
+      <text class="item-text">售后记录</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="/pages/img/icons/pingjia.png"></image>
+      <text class="item-text">我的评价</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="/pages/img/icons/tuiguang.png"></image>
+      <text class="item-text">推广邀请</text>
+    </view>
+  </view>
+  <view class="separate"></view>
+</view>
+

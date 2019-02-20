@@ -18,6 +18,13 @@ Page({
     this.getNavImages();
     this.getHotImages();
   },
+  //首页跳转到taBar的页面
+  click_swiper:function(e){
+    //当点击图片上的事件时，触发这个函数
+    wx.switchTab({ //因为是跳转到tab页面，所以用switchTab属性
+      url: '/pages/product/product', //跳转的指定路径 
+    })
+  },
   getImages:function(){
     var url1 = "http://127.0.0.1:3000/getImages";
     wx.request({
@@ -53,6 +60,9 @@ Page({
       }
     });
   },
+  //点击跳转到分类页面
+ 
+  
   
   /**
    * 生命周期函数--监听页面初次渲染完成

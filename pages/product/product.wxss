@@ -20,27 +20,35 @@
   font-family: '宋体';
   color: #444;
   line-height: 60px;
+  position: fixed;
+  top:0;
+  left:0;
 }
 /* 2.右侧 */
 .nav_right{
   display: flex;
   flex-wrap: wrap;
   width:75%;
-  /* float: right; */
+  margin-left:25%;
   box-sizing: border-box;
   justify-content: flex-start;/*水平居中*/
 }
 .right_item{
   box-sizing: border-box;
-  width:48%;
+  width:50%;
   text-align: center;
   font-size:14px;
   color: #444;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav_right image{
   width:250rpx;
   height:250rpx;
+  box-shadow: 0 0 8rpx black;
 }
 /* 背景图的引入 */
 .bgimg{

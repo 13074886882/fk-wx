@@ -1,10 +1,10 @@
 <view class='container'>
 <!-- 1.轮播图 -->
   <view>
-    <view class="slider">
+    <view class="slider" >
       <swiper autoplay="true" interval='2500' indicator-dots='true'>
         <swiper-item wx:for="{{list}}" wx:key="id">
-          <image src='{{item.img_url}}' lazy-load='true'  mode='aspectFill'></image>
+          <image bindtap='click_swiper' src='{{item.img_url}}' lazy-load='true'  mode='aspectFill'></image>
         </swiper-item>
       </swiper>
     </view>
@@ -19,14 +19,14 @@
   <!-- 3.分隔块 -->
   <view class="divider"></view>
   <!-- 4.热销商品 -->
+  <view class='hot_line'>热销商品</view>
   <view class='index-hot'>
-    <navigator class='hot-item' wx:for="{{hotlist}}" wx:key="index">
-      <image src='{{item.img_url}}'></image>
-      <text>{{item.title}}</text>
-    </navigator>
-    <navigator class='hot-item' wx:for="{{hotlist}}" wx:key="index">
-      <image src='{{item.img_url}}'></image>
-      <text>{{item.title}}</text>
-    </navigator>
+    <view class='hot-item' wx:for="{{hotlist}}" wx:key="index">
+      <image bindtap='click_swiper' src='{{item.img_url}}'></image>
+      <text>{{item.name}}</text>
+    </view>
+    
   </view>
+
+  
 </view>

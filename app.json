@@ -1,12 +1,15 @@
 {
   "pages": [
     "pages/product/product",
+    "pages/detail/detail",
     "pages/index/index",
+    "pages/member/member",
+    "pages/order/order",
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#f00",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "悦悦",
     "navigationBarTextStyle": "black"
   },
@@ -21,20 +24,20 @@
       {
         "pagePath": "pages/product/product",
         "text": "分类",
-        "iconPath": "/pages/img/tabs/home.png",
-        "selectedIconPath": "/pages/img/tabs/home-active.png"
+        "iconPath": "/pages/img/tabs/fenlei.png",
+        "selectedIconPath": "/pages/img/tabs/fenlei-active.png"
       },
       {
         "pagePath": "pages/index/index",
         "text": "购物车",
-        "iconPath": "/pages/img/tabs/home.png",
-        "selectedIconPath": "/pages/img/tabs/home-active.png"
+        "iconPath": "/pages/img/tabs/gouwu.png",
+        "selectedIconPath": "/pages/img/tabs/gouwu-active.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/member/member",
         "text": "我的",
-        "iconPath": "/pages/img/tabs/profile.png",
-        "selectedIconPath": "/pages/img/tabs/profile-active.png"
+        "iconPath": "/pages/img/tabs/person.png",
+        "selectedIconPath": "/pages/img/tabs/person-active.png"
       }
     ]
   }

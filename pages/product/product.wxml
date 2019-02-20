@@ -7,7 +7,7 @@
   <!-- 2.右侧商品栏 -->
   <view class='nav_right'>
     <view class='right_item' wx:for="{{rlist}}" wx:key="index">
-      <image lazy-load='true' src='{{item.md}}'>图片</image>
+      <image bindtap='godetail' data-id='{{item.pid}}' lazy-load='true' src='{{item.md}}'>图片</image>
       <text>{{item.subname}}</text>
     </view>
   </view>
