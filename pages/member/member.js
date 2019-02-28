@@ -41,6 +41,10 @@ Page({
    */
   onLoad: function (options) {
     //获取用户头像信息，查看是否授权
+      },
+  bindGetUserInfo(e) {
+    console.log(e.detail.userInfo)
+    // console.log(1)
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userInfo']) {
@@ -48,13 +52,17 @@ Page({
           wx.getUserInfo({
             success(res) {
               // console.log(res.userInfo)
+              const userInfo = res.userInfo
+              const nickName = userInfo.nickName
+              const avatarUrl = userInfo.avatarUrl
+              const gender = userInfo.gender // 性别 0：未知、1：男、2：女
+              const province = userInfo.province
+              const city = userInfo.city
+              const country = userInfo.country
             }
           })
-        }
-      },
-    bindGetUserInfo(e) {
-      console.log(e.detail.userInfo)
-    }
+        }  
+     }
     })
   },
 

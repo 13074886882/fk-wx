@@ -7,18 +7,18 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 登录，来获取用户信息
-    wx.getUserInfo({
-      success(res) {
-        const userInfo = res.userInfo
-        const nickName = userInfo.nickName
-        const avatarUrl = userInfo.avatarUrl
-        const gender = userInfo.gender // 性别 0：未知、1：男、2：女
-        const province = userInfo.province
-        const city = userInfo.city
-        const country = userInfo.country
-        // console.log(res);
-  }
-})
+//     wx.getUserInfo({
+//       success(res) {
+//         const userInfo = res.userInfo
+//         const nickName = userInfo.nickName
+//         const avatarUrl = userInfo.avatarUrl
+//         const gender = userInfo.gender // 性别 0：未知、1：男、2：女
+//         const province = userInfo.province
+//         const city = userInfo.city
+//         const country = userInfo.country
+//         // console.log(res);
+//   }
+// })
 
     wx.login({
       success: res => {
@@ -48,6 +48,7 @@ App({
   },
   globalData: {
     familyId:null,  //给类编号设置一个全局变量
-    userInfo: null
+    userInfo: null,
+    myurl:"http://127.0.0.1:3000"
   }
 })

@@ -2,10 +2,10 @@
 <view class="container">
   <!-- 头像信息---利用自动获取微信头像的功能 -->
   <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
-  <view class="userinfo" bindtap='uploadAvator'>
+  <view class="userinfo" >
     <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
     <open-data class='userinfo-avatar' type="userAvatarUrl"></open-data>
-    <open-data class='userinfo-nickname' type="userNickName"></open-data>
+    <open-data class='userinfo-nickname' type="userNickName"></open-data> 
     <!-- 需要使用button来授权登录 -->
     <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button>
 

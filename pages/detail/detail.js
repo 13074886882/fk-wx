@@ -1,4 +1,5 @@
 // pages/detail/detail.js
+var app = getApp();  //引入全局变量
 Page({
 
   /**
@@ -14,7 +15,7 @@ Page({
   onLoad: function (options) {
     var pid=options.pid;  //接收商品页传过来的参数pid
     // console.log(this.data.pid);
-    var url ="http://127.0.0.1:3000/getDetail?pid="+pid; //获取详情页的pid
+    var url = app.globalData.myurl+"/getDetail?pid="+pid; //获取详情页的pid
     wx.request({
       url:url,
       success:(res)=>{

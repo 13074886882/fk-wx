@@ -1,5 +1,5 @@
+var app = getApp() //获取全局变量
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -26,7 +26,7 @@ Page({
     })
   },
   getImages:function(){
-    var url1 = "http://127.0.0.1:3000/getImages";
+    var url1 = app.globalData.myurl+"/getImages";
     wx.request({
       url:url1,
       success:(res)=>{
@@ -37,7 +37,7 @@ Page({
   },
   getNavImages: function () {
     //获取九宫格信息
-    var url = "http://127.0.0.1:3000/getNavImages";
+    var url = app.globalData.myurl+"/getNavImages";
     wx.request({
       url: url,
       success: (res) => {
@@ -49,7 +49,7 @@ Page({
   },
   //获取热销商品信息
   getHotImages:function(){
-    var url2 = "http://127.0.0.1:3000/getHotImages";
+    var url2 = app.globalData.myurl+"/getHotImages";
     wx.request({
       url:url2,
       success:(res)=>{

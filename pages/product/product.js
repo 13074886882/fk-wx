@@ -36,7 +36,7 @@ Page({
     //  --先测试点击的时候，打印出来的数据结构中，找id的位置
     var fid = option.target.dataset.id;  //根据结构数据，请求点击的目标id
     app.globalData.familyId =fid;       //将类编号保存的全局变量赋值给fid
-    var url = "http://127.0.0.1:3000/getProduct?fid=" + fid; //fid要跟app里面的fid=req.query.fid
+    var url = app.globalData.myurl+"/getProduct?fid=" + fid; //fid要跟app里面的fid=req.query.fid
     wx.request({
       url: url,
       success:(res)=>{
@@ -52,7 +52,7 @@ Page({
   loadMore:function(){
     var pno = this.data.pageIndex+1;
     wx.request({
-      url:'http://127.0.0.1:3000/getProduct?fid='+app.globalData.familyId,  //再调用一次全局变量
+      url: app.globalData.myurl+'/getProduct?fid='+app.globalData.familyId,  //再调用一次全局变量
       data:{pno},
       success:(res)=>{
         var rows = this.data.rlist.concat(res.data.data);
@@ -70,7 +70,7 @@ Page({
 
   //获取左侧导航栏
   getFname: function () {
-    var url = "http://127.0.0.1:3000/getFname";
+    var url = app.globalData.myurl+"/getFname";
     wx.request({
       url: url,
       success: (res) => {
@@ -82,7 +82,7 @@ Page({
    },
    //2.获取右侧商品栏的图片和标题（subname）
   getProductFamily:function(){
-    var url2 = "http://127.0.0.1:3000/getProduct";
+    var url2 = app.globalData.myurl+"/getProduct";
     wx.request({
       url: url2,
       success:(res)=>{
@@ -93,18 +93,6 @@ Page({
       }
     })
   },
-  //3.获取背景图
-  // getBGImg:function(){
-  //   var url3 = "http://127.0.0.1:3000/getImage?id=1";
-  //   wx.request({
-  //     url: url3,
-  //     success:(res)=>{
-  //       var data = res.data;
-  //       this.setData({bg:data})
-  //       // console.log(res.data)
-  //     }
-  //   })
-  // },
  
   /*生命周期函数--监听页面初次渲染完成 */
   onReady: function () {
